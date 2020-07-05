@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TodoListItem } from './TodoListItem';
+import { TodoList } from './TodoList';
 
 
 
@@ -12,7 +12,7 @@ function App() {
 
   const [todos, setTodos]=useState(initialTodos);
 
-  const toggleTodo= (selectedTodo: Todo) =>{
+  const toggleTodo:ToggleTodo= (selectedTodo) =>{
     const newTodos=todos.map(todo=>{
       if(todo===selectedTodo){
         return {
@@ -27,8 +27,7 @@ function App() {
 
   return(
   <React.Fragment>
-    <TodoListItem todo={todos[0]} />
-    <TodoListItem todo={todos[1]} />
+    <TodoList todos={todos} toggleTodo={toggleTodo} />
   </React.Fragment>
   );
 
