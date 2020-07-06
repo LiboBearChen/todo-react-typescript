@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TodoList } from './TodoList';
+import { AddTodoForm } from './AddTodoForm';
 
 
 
@@ -25,9 +26,14 @@ function App() {
     setTodos(newTodos);
   }
 
+  const addTodo=(newTodo:string)=>{
+    setTodos([...todos, newTodo]);
+  };
+
   return(
   <React.Fragment>
     <TodoList todos={todos} toggleTodo={toggleTodo} />
+    <AddTodoForm />
   </React.Fragment>
   );
 
