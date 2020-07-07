@@ -26,14 +26,15 @@ function App() {
     setTodos(newTodos);
   }
 
-  const addTodo=(newTodo:string)=>{
-    setTodos([...todos, newTodo]);
+  const addTodo:AddTodo=newTodo=>{
+    newTodo.trim()!=="" &&
+    setTodos([...todos, {text:newTodo, complete: false}]);
   };
 
   return(
   <React.Fragment>
     <TodoList todos={todos} toggleTodo={toggleTodo} />
-    <AddTodoForm />
+    <AddTodoForm addTodo={addTodo} />
   </React.Fragment>
   );
 
